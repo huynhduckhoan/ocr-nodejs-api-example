@@ -1,0 +1,11 @@
+#!/usr/bin/env node
+
+var libs = process.env.PWD + '/libs/';
+var config = require(libs + 'config');
+var app = require(libs + 'app');
+
+app.set('port', process.env.PORT || config.get('port') || 8080);
+
+var server = app.listen(app.get('port'), function () {
+  console.log('Express server listening on port ' + app.get('port'));
+});
